@@ -1,6 +1,7 @@
 # i3-wpd
+![](/img/banner.png)  
 Simple wallpaper daemon for i3.
-Supports multiple screens but requires one image per workspace.
+Supports multiple screens but and custom image per workspace.
 
 ## Depends
 **i3** window manager - https://i3wm.org  
@@ -22,11 +23,15 @@ To see more options execute
 ```
 ./i3wpd.py
 ```
-The daemon will die if `i3` is terminated or reloaded. 
+Here's a screenshot of the default setup showing workspace 2 and 7:
+![Default setup screenshot](/img/screen.png)
 
 ## Configure
 Make a directory with images named like the desktops. For applicable formats see `man feh(1)`.  
 By default, `i3` workspaces are named `1, 2, 3 ... 10`. Consult your `i3/config`.
+
+### FYI
+The daemon will die silently if `i3` is terminated or reloaded. 
 
 ## Issues
 * Respawn is not implemented. 
