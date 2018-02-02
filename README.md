@@ -15,10 +15,12 @@ The `i3msg.py` script included in this repository is adapted from
 2. [optional] If you have [i3msg-python](https://github.com/Ceryn/i3msg-python) and would like to use the upstream source you may discard `i3msg.py`.
 
 ## Usage
-Default mode looks for `.png` files in the `./backgrounds` directory. If no such directory exists it will attempt to load images from the calling directory.
+Bash it:
 ```
-./i3wpd.py default
+./i3wpd.py directory filtype
 ```
+If directory doesn't exist i3wpd will attempt to load images from the calling directory.
+
 To see more options execute
 ```
 ./i3wpd.py
@@ -31,8 +33,12 @@ Make a directory with images named like the desktops. For applicable formats see
 By default, `i3` workspaces are named `1, 2, 3 ... 10`. Consult your `i3/config`.
 
 ### FYI
-The daemon will die silently if `i3` is terminated or reloaded. 
-
+The daemon will die silently if `i3` is terminated or reloaded.  
+Included in this repository are NASA/JAXA images of the solar system. Try
+```
+i3wpd.py solar .jpg
+```
+![Solar system theme screenshot](/img/screen2.png)
 ## Issues
 * Respawn is not implemented. 
 * Launching from `i3/config` is untested.

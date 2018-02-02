@@ -6,17 +6,12 @@ import time
 import i3msg as i3
 
 I3WPD_DEB = False
-def dbg(msg):
-    """Print to stdout"""
-    if I3WPD_DEB:
-        print(__name__ + ' : ' + msg)
-
 class i3_Wpd:
     """Wallpaper setter daemon"""
     def __init__(self, bg_options, wp_dir, img_format):
         self.wp_cmd = 'feh ' + bg_options
         if not wp_dir.endswith('/'):
-            wp_dir.append('/')
+            wp_dir += '/'
         self.wp_dir = wp_dir
         self.img_format = img_format
         dbg('Launch!')
@@ -63,24 +58,32 @@ class i3_Wpd:
             dbg('i3 exit.')
             os._exit(0)
 
+def dbg(msg):
+    """Print to stdout"""
+    if I3WPD_DEB:
+        print(__name__ + ' : ' + msg)
 
+def resolve_path(dir):
+    """Figure out where to look for images"""
+    paths = [dir, 'backgrounds']
+    cur_dir = os.getcwd() + '/'
+    dbg(cur_dir)
+    for p in paths:
+        if os.path.exists(p) and os.path.isdir(p):
+            return p
+        elif os.path.exists(cur_dir + p) and os.path.isdir(cur_dir + p):
+            return cur_dir + p
+    return cur_dir
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
-        i3_Wpd(sys.argv[1], sys.argv[2], sys.argv[3])
+        i3_Wpd(sys.argv[1], resolve_path(sys.argv[2]), sys.argv[3])
     elif len(sys.argv) == 3:
-        i3_Wpd('--bg-center --bg black', sys.argv[1], sys.argv[2])
-    elif len(sys.argv) == 2:
-        if sys.argv[1] == 'default':
-            wp_dir = os.getcwd() + '/'
-            if os.path.exists(wp_dir + 'backgrounds/') and os.path.isdir(wp_dir + 'backgrounds/'):
-                 wp_dir += 'backgrounds/'
-            i3_Wpd('--bg-center --bg black', wp_dir, '.png')
+        i3_Wpd('--bg-center --bg black', resolve_path(sys.argv[1]), sys.argv[2])
     else:
-        print('i3wll.py - sets a custom wallpaper on every desktop')
-        print('usage: i3wll.py [\"options\"] directory filetype')
-        print('usage: i3wll.py default')
-        print('options: \"--bg-center|--bg-fill|--bg-scale [--bg black]\".\nOther options may apply, see man feh(1).')
+        print('i3wpd.py - sets a custom wallpaper on every desktop')
+        print('usage: i3wpd.py [\"options\"] directory filetype')
+        print('options: \"--bg-center|--bg-fill|--bg-scale [--bg black|white]\".\nOther options may apply, see man feh(1).')
         exit()
 
     while True:
