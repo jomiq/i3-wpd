@@ -1,11 +1,7 @@
 # i3-wpd
 ![](/img/banner.png)  
 Simple wallpaper daemon for i3.
-<<<<<<< HEAD
 Supports multiple screens and custom image per workspace.
-=======
-Supports multiple screens but and custom image per workspace.
->>>>>>> 711de7a016b916b713e0bd9e1d7ee77e189da4a2
 
 ## Depends
 **i3** window manager - https://i3wm.org  
