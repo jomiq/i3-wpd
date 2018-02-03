@@ -19,7 +19,7 @@ Bash it:
 ```
 ./i3wpd.py directory filtype
 ```
-If directory doesn't exist i3wpd will attempt to load images from the calling directory.
+If `directory` doesn't exist i3wpd will attempt to load images from the calling directory.
 
 To see more options execute
 ```
@@ -36,7 +36,7 @@ By default, `i3` workspaces are named `1, 2, 3 ... 10`. Consult your `i3/config`
 The daemon will die silently if `i3` is terminated or reloaded.  
 Included in this repository are NASA/JAXA images of the solar system. Try
 ```
-i3wpd.py solar .jpg
+./i3wpd.py "--bg-fill --bg black" solar .jpg
 ```
 ![Solar system theme screenshot](/img/screen2.png)
 ## Issues
