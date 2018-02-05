@@ -41,7 +41,7 @@ Included in this repository are NASA/JAXA images of the solar system. Try
 ![Solar system theme screenshot](/img/screen2.png)
 ## Issues
 * Respawn is not implemented. 
-* Launching from `i3/config` is untested.
+* ~~Launching from `i3/config` is untested.~~ (WFM)
 * I actually don't know Python. 
 * Probably other stuff too.
 
