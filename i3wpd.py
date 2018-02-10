@@ -9,7 +9,7 @@ I3WPD_DEB = False
 class i3_Wpd:
     """Wallpaper setter daemon"""
     def __init__(self, bg_options, wp_dir, img_format):
-        self.wp_cmd = 'feh ' + bg_options
+        self.wp_cmd = 'feh --no-fehbg ' + bg_options
         if not wp_dir.endswith('/'):
             wp_dir += '/'
         self.wp_dir = wp_dir
