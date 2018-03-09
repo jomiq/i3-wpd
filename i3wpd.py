@@ -5,7 +5,7 @@ import sys
 import time
 import i3msg as i3
 
-I3WPD_DEB = False
+I3WPD_DEBUG = False
 class i3_Wpd:
     """Wallpaper setter daemon"""
     def __init__(self, bg_options, wp_dir, img_format):
@@ -60,7 +60,7 @@ class i3_Wpd:
 
 def dbg(msg):
     """Print to stdout"""
-    if I3WPD_DEB:
+    if I3WPD_DEBUG:
         print(__name__ + ' : ' + msg)
 
 def resolve_path(dir):
