@@ -12,7 +12,7 @@ The `i3msg.py` script included in this repository is adapted from
 
 ## Install
 1. Put the files somewhere. 
-2. [optional] If you have [i3msg-python](https://github.com/Ceryn/i3msg-python) and would like to use the upstream source you may discard `i3msg.py`.
+2. [optional] If you have [i3msg-python](https://github.com/Ceryn/i3msg-python) and would like to use the upstream source you may discard `i3msg.py`. Be advised the upstream source will not run on Python 3. 
 
 ## Usage
 Bash it:
