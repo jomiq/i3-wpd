@@ -17,7 +17,7 @@ The `i3msg.py` script included in this repository is adapted from
 ## Usage
 Bash it:
 ```
-./i3wpd.py directory filtype
+./i3wpd.py directory filetype
 ```
 If `directory` doesn't exist i3wpd will attempt to load images from the calling directory.
 
